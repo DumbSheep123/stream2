@@ -256,7 +256,7 @@ a {
     </div>
   </div>
 </div>
-    <script src="./common.js"></script>
+
 
   
       <script id="rendered-js" type="module">
@@ -327,7 +327,6 @@ class ColorPalette {
   }
 
   setCustomProperties() {
-    // set CSS custom properties so that the colors defined here can be used throughout the UI
     document.documentElement.style.setProperty("--hue", this.hue);
     document.documentElement.style.setProperty(
     "--hue-complimentary1",
@@ -389,7 +388,7 @@ class Orb {
     window.innerHeight :
     window.innerHeight / 1.375;
 
-    // allow each orb to move x distance away from it's x / y origin
+
     return {
       x: {
         min: originX - maxDist,
@@ -437,7 +436,7 @@ class Orb {
   }}
 
 
-// Create PixiJS app
+
 const app = new PIXI.Application({
   // render to <canvas class="orb-canvas"></canvas>
   view: document.querySelector(".orb-canvas"),
@@ -447,12 +446,11 @@ const app = new PIXI.Application({
   transparent: true });
 
 
-// Create colour palette
+
 const colorPalette = new ColorPalette();
 
 app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
 
-// Create orbs
 const orbs = [];
 
 for (let i = 0; i < 10; i++) {if (window.CP.shouldStopExecution(0)) break;
@@ -463,7 +461,7 @@ for (let i = 0; i < 10; i++) {if (window.CP.shouldStopExecution(0)) break;
   orbs.push(orb);
 }
 
-// Animate!
+
 window.CP.exitedLoop(0);if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
   app.ticker.add(() => {
     orbs.forEach(orb => {
@@ -488,7 +486,6 @@ addEventListener("click", () => {
     orb.fill = colorPalette.randomColor();
   });
 });
-//# sourceURL=pen.js
     </script>
 
   
